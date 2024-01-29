@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Login {% endblock %}
+
+
+
+{% block main_content %}
+    <section class="container mx-auto">
+    <h2>Edit Sequence</h2>
+    <form action="" method="post" class="w-50 mx-auto">
+        
+
+    {# hidden csrf token #} {{ form.csrf_token }} 
+    
+    {# fullname label and input #}
+    <div class="mt-2">
+      {{ form.isolate.label(class='form-label') }} 
+      {{form.isolate(class='form-control', placeholder='Enter Isolate Name') }}
+    </div>
+    <div class="mt-2">
+      {{ form.location.label(class='form-label') }} 
+      {{form.location(class='form-control', placeholder='Enter Location') }}
+    </div>
+
+    {# subject label and input #}
+    <div class="mt-2">
+      {{ form.lat.label(class='form-label') }} 
+      {{ form.lat(class='form-control', placeholder='Enter latitude') }}
+    </div>
+    {# subject label and input #}
+    <div class="mt-2">
+      {{ form.long.label(class='form-label') }} 
+      {{ form.long(class='form-control', placeholder='Enter longitude') }}
+    </div>
+    {# subject label and input #}
+    <div class="mt-2">
+      {{ form.assencion.label(class='form-label') }} 
+      {{ form.assencion(class='form-control', placeholder='Enter Assencion #') }}
+    </div>
+
+    {# content label and textarea input #}
+    <div class="mt-2">
+      {{ form.sequence.label(class='form-label') }} 
+      {{ form.sequence(class='form-control', placeholder='Enter Sequence') }}
+    </div>
+
+    {# submit button #}
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success w-100">Update Sequence</button>
+
+    </div>
+  
+    </form>
+    </section>
+
+{% endblock %}

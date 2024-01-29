@@ -1,0 +1,61 @@
+{# extending base.html file #} 
+{% extends 'base.html' %}
+ {# enter title for page here #}
+{% block title %} 
+  Add Sequence
+{% endblock %}
+  
+{# main content #}
+{% block main_content %}
+  <section class="container mx-auto">
+    <div class="text-center">
+      <h1>Create New Sequence</h1>
+  <p>
+    Sequence and Isolat Name Required
+  </p>
+    </div>
+
+  {# form that is using the form instance that was passed #}
+  <form action="" method="post" class="w-50 mx-auto">
+
+    {# hidden csrf token #} {{ form.csrf_token }} 
+    
+    {# fullname label and input #}
+    <div class="mt-2">
+        {{ form.isolate.label(class='form-label') }} 
+        {{form.isolate(class='form-control', placeholder='Enter Isolate Name') }}
+      </div>
+      <div class="mt-2">
+        {{ form.location.label(class='form-label') }} 
+        {{form.location(class='form-control', placeholder='Enter Location') }}
+      </div>
+  
+      {# subject label and input #}
+      <div class="mt-2">
+        {{ form.lat.label(class='form-label') }} 
+        {{ form.lat(class='form-control', placeholder='Enter latitude') }}
+      </div>
+      {# subject label and input #}
+      <div class="mt-2">
+        {{ form.long.label(class='form-label') }} 
+        {{ form.long(class='form-control', placeholder='Enter longitude') }}
+      </div>
+      {# subject label and input #}
+      <div class="mt-2">
+        {{ form.assencion.label(class='form-label') }} 
+        {{ form.assencion(class='form-control', placeholder='Enter Assencion #') }}
+      </div>
+  
+      {# content label and textarea input #}
+      <div class="mt-2">
+        {{ form.sequence.label(class='form-label') }} 
+        {{ form.sequence(class='form-control', placeholder='Enter Sequence') }}
+      </div>
+
+    {# submit button #}
+    <div class="mt-4">
+    {{ form.submit(class='btn btn-primary w-100') }}
+    </div>
+  </form>
+  </section>
+{% endblock %}
