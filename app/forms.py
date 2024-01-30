@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, BooleanField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, TextAreaField
 from wtforms.validators import InputRequired, EqualTo
 
 class LoginForm(FlaskForm):
@@ -25,3 +25,6 @@ class SequenceForm(FlaskForm):
     sequenceRAW = StringField('Sequence', validators=[InputRequired()])
     submit = SubmitField('Register')
 
+
+class SingleSequenceForm(FlaskForm):
+	sequenceDNA = TextAreaField('sequenceDNA')

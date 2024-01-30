@@ -2,6 +2,7 @@
 
 #FASTA format converter - convert to string
 def FASTAConverter(FASTAstring):
+    #check for FASTA headers, pull and assign title
     if FASTAstring[0] == ">":
         finalIndex = FASTAstring.index('\n')
         title = FASTAstring[:finalIndex]
@@ -73,7 +74,7 @@ def percentGC(sequenceDNA):
     percentGC = 100 * (compositionDNA["g"] + compositionDNA["c"]) / (len(sequenceDNA))
     return percentGC
 
-#translation function - RNA->Protein
+#Translation function - RNA->Protein ||Need to convert to RNA before use||
 def translation(sequenceRNA):
     AAlibrary = {
     'uuu': 'F', 'ucu': 'S', 'uau': 'Y', 'ugu': 'C',

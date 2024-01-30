@@ -1,7 +1,31 @@
 {% extends 'base.html' %}
 
+<h1> extends 'base.html' - jinja not working</h1>
 
-{% block title %} DASHBOARD {% endblock %}
-{% block main_content %}
-DASHBOARD
-{% endblock %}
+
+{% block content %}
+    <section class="mx-auto row" style="max-height: 100vh;">
+        <div class="col p-4">
+            <h1 class="text-center">Submit DNA</h1>
+        <form action="" method="post" class="w-50 mx-auto ">
+            {{ form.csrf_token }}
+
+          
+                {{ form.sequenceDNA.label(class='form-label ') }}
+                {{ form.sequenceDNA(class='form-control ') }}
+       
+
+
+            <div class="mt-3">
+                <button type="button" class="btn btn-dark">Submit</button>
+               
+            </div>
+            {% endblock %}
+        </form>
+        </div>
+       
+        </div>
+    </section>
+
+
+    

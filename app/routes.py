@@ -1,9 +1,9 @@
 from app import app, db
 from app.models import User, SequenceForm
-from app.forms import LoginForm, RegisterForm, SequenceForm
-from flask import render_template, redirect, url_for, flash, request
+from app.forms import LoginForm, RegisterForm, SequenceForm, SingleSequenceForm
+from flask import render_template, redirect, url_for, flash, request, session
 from flask_login import login_required, UserMixin, login_user, logout_user, LoginManager, current_user
-
+from app.DNAfunctions import *
 
 app.secret_key = 'you-will-never-guess'
 @app.route('/')
@@ -47,12 +47,23 @@ def login():
         return redirect(url_for('dashboard'))
     return render_template('login.html', form=form)
     
-@app.route('/dashboard')
-@login_required
+@app.route('/dashboard', methods=["GET", "POST"])
+# @login_required
 def dashboard():
+    form = SingleSequenceForm()
+    if form.validate_on_submit():
+        # sequenceDNA = form.data.get('sequenceDNA')
+        # if isSequenceValid(FASTAConverter(form.sequenceDNA.data)[1]):
+        session['sequenceDNA'] = form.sequenceDNA.data
+        return redirect('/dashboard')
+        # else:
+            # flash(repr(FASTAConverter(form.sequenceDNA.data)))
     # sequences = db.session.execute(db.select(Sequence).where(Sequence.user_id == current_user.user_id).order_by(db.asc(Sequence.isolate))).scalars().all()
-    return render_template('dashboard.html')
-
+    # else:
+        # flash('invalid entry')
+    # return render_template('index.html' )
+    return render_template('dashboard.html', form=form)
+    
 @app.route('/logout')
 @login_required
 def logout():
