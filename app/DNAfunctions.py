@@ -102,3 +102,8 @@ def translation(sequenceRNA):
         proteinSequence.append(sequenceProtein)
 
     return proteinSequence
+
+def tempPCR(sequenceADN):
+    GC = percentGC(sequenceADN)
+    Tm = 67.5 + (0.34*GC)-(395/len(sequenceADN))
+    return Tm

@@ -2,22 +2,26 @@
 
 {% block title %} Home {% endblock %}
 
-{% block main_content %}
-
-<header class="mb-5 container mx-auto mt-3">
-    <img src="{{ url_for('static', filename='images/header.jpg')}}" alt="nothingyet"
+{% block content %}
+<h1>Sequence Index</h1>
+<header class=" mb-5 container mx-auto ">
+    <img src="{{ url_for('static', filename='../static/images/header.jpeg')}}" alt="fancy genes"
       width="100%" height="400px" class="rounded-5 shadow-lg object-fit-cover ">
   </header>
 
   <section class="container mx-auto">
 
-    <h1>Sequence Index</h1>
+   
     <div class="row fs-5">
       <div class="col">
-        <p>Sequnces</p>
+        <p><ul><li>DNA to RNA</li>
+        <li>Protein Translation</li>
+        <li>GC Content</li>
+        <li>PCR Fusion temperature</li>
+        <li>ToCome: Motif Localization</li></ul></p>
       </div>
       <div class="col">
-        <p>edit and add location of isolate
+        <p>Gene Database for Users
         </p>
         
       </div>

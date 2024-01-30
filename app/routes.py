@@ -70,12 +70,13 @@ def sequenceResults():
     sequence = FASTAConverter(session['sequenceDNA'])[1]
     _composition = composition(sequence)
     contentGC = int(percentGC(sequence))
+    fusionTemp = tempPCR(sequence)
     RNAseq = DNA_to_RNA(sequence)
     proteinSeq = translation(RNAseq)
     length = len(sequence)
     print(proteinSeq)
 
-    return render_template('results.html', length=length, geneTitle=geneTitle, sequence=sequence, _composition=_composition, contentGC=contentGC, RNAseq=RNAseq, proteinSeq=proteinSeq )
+    return render_template('results.html', fusionTemp=fusionTemp, length=length, geneTitle=geneTitle, sequence=sequence, _composition=_composition, contentGC=contentGC, RNAseq=RNAseq, proteinSeq=proteinSeq )
 
 @app.route('/logout')
 @login_required

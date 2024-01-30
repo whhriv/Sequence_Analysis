@@ -6,11 +6,11 @@
 {% block content %}
     <section class="mx-auto row" style="max-height: 100vh;">
         <div class="col p-4">
-            <h1 class="text-center">Submit DNA</h1>
-        <form action="" method="post" class="w-50 mx-auto ">
+           
+        <form action="" method="post" class="w-50 h-100 mx-auto ">
             {{ form.csrf_token }}
 
-          
+            <h3>Paste FASTA Nucleotide Sequence</h3>
                 {{ form.sequenceDNA.label(class='form-label ') }}
                 {{ form.sequenceDNA(class='form-control ') }}
        
