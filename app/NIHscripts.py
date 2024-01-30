@@ -1,9 +1,9 @@
+import requests
 # PERL SOURCES
 # https://www.ncbi.nlm.nih.gov/books/NBK25498/#chapter3.ELink__ESearch
 # https://www.ncbi.nlm.nih.gov/books/NBK25501/
 
 
-import requests
 
 # Download protein FASTA records linked to abstracts published 
 # in 2009 that are indexed in MeSH for both asthma and 

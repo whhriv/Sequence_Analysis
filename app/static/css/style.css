@@ -1,4 +1,12 @@
 *{
-    font-style: italic;
+
     font-family: serif;
+}
+
+#start { 
+    background-color: green; 
+}
+
+#stop { 
+    background-color: red; 
 }

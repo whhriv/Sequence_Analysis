@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<section class="mx-auto row" style="max-height: 100vh;">
+    <div class="col p-4">
+        <h1 class="text-center">DNA Results</h1>
+        {% for prot_seq in proteinSeq %}
+        <tr>
+          <td>{{ loop.index - 1 }}</td>
+            <td>{% for i in prot_seq %}
+                {% if i == "M" %}
+                <span id="start">START</span> - 
+                {% elif i == "*" %}
+                <span id="stop">STOP</span> - 
+                {% else %}
+                {{i}} - 
+                {% endif %}	      
+            {% endfor %}</td>
+        {% endfor %}
+        {% endblock %}
+    </form>
+    </div>
+   
+    </div>
+</section>
