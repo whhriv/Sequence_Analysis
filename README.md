@@ -6,7 +6,7 @@ IN TERMINAL:
 
 git clone https://github.com/whhriv/Sequence_Analysis
 
-cd Sequence_Analysis
+cd Sequence_Analysis/app
 
 python3 -m venv venv
 
