@@ -10,3 +10,10 @@
 #stop { 
     background-color: red; 
 }
+#atgc {
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border-width: 0.25px !important;
+    border-color: darkgrey !important;
+    font-size: xx-small;
+}

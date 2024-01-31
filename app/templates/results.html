@@ -5,9 +5,10 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                Source:  <small class="text-muted">{{geneTitle}}</small>
+                Source:  <br><small class="text-muted">{{geneTitle}}</small>
                <p><ul><li>GC Content: {{contentGC}} %</li>
                <li>Melting Temp: {{fusionTemp}}°C</li>
+               <li>Gene Length: {{ length }} BasePairs</li>
             </ul></p>
                <h2>Protein Sequence</h2>
                 <table class="table">
@@ -30,34 +31,18 @@
                 <h2>Nucleotide Sequence: </h2>
                 
                 <p>Length: {{ length }} BasePairs</p>
-                <table class="table">
+                <table class="table" id="atgc">
 
-                    {% for nucleotide_chunk in sequence|batch(30) %}
+                    {% for nucleotide_chunk in sequence|batch(50) %}
+
                         <tr>
                             {% for nucleotide in nucleotide_chunk %}
-                                <td>{{ nucleotide }}</td>
+                               <td>{{ nucleotide }}</td>
                             {% endfor %}
                         </tr>
                     {% endfor %}
                 </table>
-                <h2>Protein Sequence</h2>
-                <table class="table">
-                    {% for peptidSeq in proteinSeq %}
-                    <tr>
-                      <td>{{ loop.index - 1 }}</td>
-                        <td>{% for i in peptidSeq %}
-                            {% if i == "M" %}
-                            <span id="start">START</span> - 
-                            {% elif i == "*" %}
-                            <span id="stop">STOP</span> - 
-                            {% else %}
-                            {{i}} - 
-                            {% endif %}	      
-                        {% endfor %}</td>
-                    {% endfor %}
-                    </tr>
-          
-                </table>
+                
             </div>
         </div>
     </div>

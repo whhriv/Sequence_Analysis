@@ -74,9 +74,15 @@ def sequenceResults():
     RNAseq = DNA_to_RNA(sequence)
     proteinSeq = translation(RNAseq)
     length = len(sequence)
+    seqDNA = str(sequence)
+
+    # NEED TO - ADD MOTIF FXNS
+    #follow through to Jinja templates in html files
+    #need to include submit form for user motif search
+    
     print(proteinSeq)
 
-    return render_template('results.html', fusionTemp=fusionTemp, length=length, geneTitle=geneTitle, sequence=sequence, _composition=_composition, contentGC=contentGC, RNAseq=RNAseq, proteinSeq=proteinSeq )
+    return render_template('results.html', seqDNA=seqDNA, fusionTemp=fusionTemp, length=length, geneTitle=geneTitle, sequence=sequence, _composition=_composition, contentGC=contentGC, RNAseq=RNAseq, proteinSeq=proteinSeq )
 
 @app.route('/logout')
 @login_required

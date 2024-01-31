@@ -1,4 +1,4 @@
-
+import re
 
 #FASTA format converter - convert to string
 def FASTAConverter(FASTAstring):
@@ -52,6 +52,28 @@ def composition(sequenceDNA):
         composition[i] = composition.get(i, 0) + 1
     return composition
 
+
+#Motif Localization functions - tried using general expression as well
+def localiserMotifRE(sequenceDNA, motif, position):
+    sequenceDNA = sequenceDNA.upper()
+    pattern = re.compile(motif)
+    motifLocation = []
+    usrInput = pattern.search(sequenceDNA, position)
+    while usrInput != None:
+        motifLocation.append(usrInput.start(0))
+        usrInput = pattern.search(sequenceDNA, usrInput.start(0)+1)
+    return motifLocation
+
+def localiserMotifRE(sequenceDNA, motif, position):
+    sequenceDNA = sequenceDNA.upper()
+    pattern = re.compile(motif)
+    motifLocation = []
+    usrInput = pattern.search(sequenceDNA, position)
+    while usrInput != None:
+        motifLocation.append(usrInput.start(0))
+        usrInput = pattern.search(sequenceDNA, usrInput.start(0)+1)
+    return motifLocation
+
 #translate DNA to RNA
 def DNA_to_RNA(sequenceDNA):
     sequenceRNA = []
@@ -73,6 +95,23 @@ def percentGC(sequenceDNA):
     compositionDNA = composition(sequenceDNA)
     percentGC = 100 * (compositionDNA["g"] + compositionDNA["c"]) / (len(sequenceDNA))
     return percentGC
+
+
+#### ------ IN PROGRESS -----####
+#Codon Locator START/STOP in DNA
+def codonLocator(sequenceDNA):
+    seq = sequenceDNA
+    newSeq = []
+    for i in range(len(seq)):
+        newSeq.replace("A")
+        if seq[i:i+3] == "ATG":
+            newSeq.replace("ATG", "START")
+            return "START", seq  
+        elif seq[i:i+3] == "TAA" or "TAG" or "TGA":
+            newSeq.replace(seq[i:[+3]], "STOP")
+            return "STOP", seq
+        newSeq.append(i)
+    return newSeq
 
 #Translation function - RNA->Protein ||Need to convert to RNA before use||
 def translation(sequenceRNA):

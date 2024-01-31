@@ -22,3 +22,26 @@
    
     </div>
 </section>
+
+
+<h2>Nucleotide mess'n around</h2>
+                <table class="table">
+                    {% for base in seqDNA %}
+                    <tr>
+                      <td>{{ loop.index - 1 }}</td>
+                        <td>
+                            {% for i in base %}
+                            {% if base[i:i+3] == "ATG" %}
+                            <span id="start">START</span> - 
+                          
+                            {% elif base[i:i+3] == "TAA" or "TAG" or "TGA" %}
+                            <span id="stop">STOP</span> - 
+                            {% else %}
+                            {{i}} - 
+                            {% endif %}	      
+                        {% endfor %}</td>
+                        {% endfor %}
+                   
+                    </tr>
+          
+                </table>
